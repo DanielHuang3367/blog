@@ -114,9 +114,31 @@
         <a href = "https://legendary3367-speaker.netlify.app">由此进入</a>
     </div>
     <h2>Chat Room 聊天区</h2>
-    <div class="container3">
+    <div class="container2">
         <script defer src="https://cdn.commento.io/js/commento.js"></script>
         <div id="commento"></div>
+    </div>
+    <h2>《诗经·彼阳》</h2>
+    <div class="container3">
+        <p style="color: orange">彼阳若至，初升东曦。绯雾飒蔽，似幕绡绸。</p>
+        <p style="color: orange">彼阳篝碧，雾霂涧滁。赤石冬溪，似玛瑙潭。</p>
+        <p style="color: orange">彼阳晚意，暖梦似乐。寐游浮沐，若雉飞舞。</p>
+        <button onclick="speak()">Read 朗读</button>
+        <script>
+            let currentText = '彼阳若至，初升东曦。绯雾飒蔽，似幕绡绸。彼阳篝碧，雾霂涧滁。赤石冬溪，似玛瑙潭。彼阳晚意，暖梦似乐。寐游浮沐，若雉飞舞。';
+
+            function speak() {
+                const outputDiv = document.getElementById('output');
+                outputDiv.textContent = currentText;
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(currentText);
+                    utterance.lang = 'zh-CN';
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    alert('Error:Can\'t read your text');
+                }
+            }
+        </script>
     </div>
 </body>
 </html>
