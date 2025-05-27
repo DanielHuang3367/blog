@@ -128,14 +128,12 @@
             let currentText = '彼阳若至，初升东曦。绯雾飒蔽，似幕绡绸。彼阳篝碧，雾霂涧滁。赤石冬溪，似玛瑙潭。彼阳晚意，暖梦似乐。寐游浮沐，若雉飞舞。';
 
             function speak() {
-                const outputDiv = document.getElementById('output');
-                outputDiv.textContent = currentText;
                 if ('speechSynthesis' in window) {
                     const utterance = new SpeechSynthesisUtterance(currentText);
                     utterance.lang = 'zh-CN';
                     window.speechSynthesis.speak(utterance);
                 } else {
-                    alert('Error:Can\'t read your text');
+                    alert('Error:Can\'t read it.');
                 }
             }
         </script>
